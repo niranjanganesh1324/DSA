@@ -4,12 +4,10 @@ class Solution {
         int n=words.length-1;
         StringBuilder ans=new StringBuilder();
         for (int i=n;i>=0;i--){
-            if(words[i].length()>0){
                 if(ans.length()>0){
                     ans.append(" ");
                 }
                 ans.append(words[i]);
-            }
         }
         return ans.toString();
     }
