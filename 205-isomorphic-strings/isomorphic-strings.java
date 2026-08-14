@@ -3,23 +3,25 @@ class Solution {
         if(s.length() != t.length()){
             return false;
         }
-        HashMap<Character,Character> map1=new HashMap<>();
-        HashMap<Character,Character> map2=new HashMap<>();
+        int map1[]=new int[256];
+        int map2[]=new int[256];
         for(int i=0;i<s.length();i++){
             char a=s.charAt(i);
             char b=t.charAt(i);
-            if(map1.containsKey(a) && map1.get(a) !=b){
-                return false;
-            }else{
-                map1.put(a,b);
-            }
-            if(map2.containsKey(b) && map2.get(b) !=a){
-                return false;
-            }else{
-                map2.put(b,a);
-
+            if(map1[a]!=0){
+                if(map1[a]!=b){
+                    return false;
+                }
             }
 
+            if(map2[b]!=0){
+                if(map2[b]!=a){
+                    return false;
+                }
+            }
+
+            map1[a]=b;
+            map2[b]=a;
         }
         return true;
     }
